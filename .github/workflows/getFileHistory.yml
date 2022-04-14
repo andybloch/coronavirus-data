@@ -1,0 +1,76 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+      
+      - name: Run script
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const child_process = require('child_process');
+
+            function prepend(p,text) {
+              if (text.substr(-1)==="\n") {
+                text = text.slice(0,-1);
+              }
+              return text.split("\n").map(line=>line == "" ? "" : p + line).join('\n');
+            }
+
+            // Get git version of file, at a particular date
+            // Output the file with lines prepended with the date
+            function getFileAtDate(dir,filename, date, cwd) {
+              let cleanDate = date.replace(/[^a-zA-Z0-9 \-_+.:\/]/g, "");
+              let cmd = 'git show `git rev-list -n 1 --first-parent --before="' + cleanDate + '" master`:' + dir + "/" + filename ;
+              //console.log(cmd);
+              // Would be faster to use the non-sync version (and then reorder output)
+              let stdout = child_process.execSync(cmd,{cwd,encoding:"utf8",maxBuffer:10*1024*1024});
+              console.log(prepend(date+',',stdout));
+            }
+
+            // Get daily version of file from git, for the last N days
+            function getHistory(dir,filename, days, cwd) {
+              const dayMs = 1000*60*60*24;
+              const now = Date.now();
+              const firstDate = now - dayMs * days ;
+              for (t = firstDate ; t <= now ; t+= dayMs) {
+                const d = (new Date(t)).toISOString().slice(0,10);
+                getFileAtDate(dir,filename, d, cwd);
+              }
+            }
+            
+            getHistory("totals","by-group.csv",3,".");
+
+
+    
