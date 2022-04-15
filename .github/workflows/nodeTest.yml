@@ -31,11 +31,12 @@ jobs:
         with:
           result-encoding: string
           script: |
-            core.setOutput('result', "" + Date.now() + " Node world!");
+            console.log("Hello node!");
+            core.setOutput('setoutput', "" + Date.now() + " Node world!");
         id: nodescript
 
       - name: Save result
-        run: echo "${{steps.nodescript.outputs.result}}" > nodeTest.txt
+        run: echo "${{steps.nodescript.outputs.setoutput}}" > nodeTest.txt
 
       - name: Commit files
         id: commit
