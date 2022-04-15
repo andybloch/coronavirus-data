@@ -31,7 +31,6 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const core = require('@actions/core');
             core.setOutput('result', "" + Date.now() + " Node world!");
         id: nodescript
 
