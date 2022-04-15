@@ -1,5 +1,8 @@
 name: Merge upstream branches
 # https://stackoverflow.com/questions/23793062/can-forks-be-synced-automatically-in-github
+# Alternative: https://github.com/settings/installations/24978774
+# Manually trigger alternative:
+# https://pull.git.ci/process/andybloch/coronavirus-data
 on:
   schedule:
   #- cron:  '*/15 * * * *'
