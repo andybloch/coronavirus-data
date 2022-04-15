@@ -32,9 +32,10 @@ jobs:
           result-encoding: string
           script: |
             console.log(Date.now() + " Node world!");
+        id: nodescript
 
       - name: Save result
-        run: echo "${{steps.set-result.outputs.result}}" > nodeTest.txt
+        run: echo "${{steps.nodescript.outputs.result}}" > nodeTest.txt
 
       - name: Commit files
         id: commit
