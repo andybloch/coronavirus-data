@@ -35,17 +35,12 @@ jobs:
             core.setOutput('setoutput', "" + Date.now() + " Node world!");
         id: nodescript
 
-      - name: Save result
-        run: echo "${{steps.nodescript.outputs.setoutput}}" > nodeTest.txt
-
-      - name: Commit files
+      - name: Commit result
         id: commit
         run: |
+          echo "${{steps.nodescript.outputs.setoutput}}" > nodeTest.txt
           git config --local user.email "github@andybloch.com"
           git config --local user.name "andybloch"
-          git add --all
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-           github_token: ${{ secrets.GITHUB_TOKEN }}
+          git add .
+          git commit -m "generated"
+          git push
