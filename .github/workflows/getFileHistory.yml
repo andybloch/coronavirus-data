@@ -62,7 +62,7 @@ jobs:
               return output;
             }
             
-            core.setOutput('output', getHistory("totals","by-group.csv",3,"."));
+            core.setOutput('output', getHistory("totals","by-group.csv",3,".").join("\n"));
         id: nodescript 
 
       - name: Commit result
