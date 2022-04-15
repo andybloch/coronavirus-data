@@ -2,7 +2,7 @@ name: Merge upstream branches
 # https://stackoverflow.com/questions/23793062/can-forks-be-synced-automatically-in-github
 on:
   schedule:
-    - cron:  '*/15 * * * *'
+  - cron:  '*/15 * * * *'
     
 jobs:
   merge:
