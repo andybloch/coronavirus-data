@@ -56,21 +56,33 @@ jobs:
               //console.log(cmd);
               // Would be faster to use the non-sync version (and then reorder output)
               let stdout = child_process.execSync(cmd,{cwd,encoding:"utf8",maxBuffer:10*1024*1024});
-              console.log(prepend(date+',',stdout));
+              return prepend(date+',',stdout);
             }
-
+            
             // Get daily version of file from git, for the last N days
             function getHistory(dir,filename, days, cwd) {
               const dayMs = 1000*60*60*24;
               const now = Date.now();
               const firstDate = now - dayMs * days ;
+              output = [];
               for (t = firstDate ; t <= now ; t+= dayMs) {
                 const d = (new Date(t)).toISOString().slice(0,10);
-                getFileAtDate(dir,filename, d, cwd);
+                output.push(getFileAtDate(dir,filename, d, cwd));
               }
+              return output;
             }
             
-            getHistory("totals","by-group.csv",3,".");
+            core.setOutput('output', getHistory("totals","by-group.csv",3,"."));
+        id: nodescript 
 
+      - name: Commit result
+        id: commit
+        run: |
+          echo "${{steps.nodescript.outputs.output}}" > history/by-group.csv
+          git config --local user.email "github@andybloch.com"
+          git config --local user.name "andybloch"
+          git add .
+          git commit -m "generated"
+          git push
 
     
