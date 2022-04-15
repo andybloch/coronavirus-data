@@ -31,7 +31,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            console.log(Date.now() + " Node world!");
+            return "" + Date.now() + " Node world!";
         id: nodescript
 
       - name: Save result
