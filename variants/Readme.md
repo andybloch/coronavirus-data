@@ -11,12 +11,13 @@ An increase in percent of lineages classified as  “other” for previously rep
 
 This file contains counts of confirmed cases, stratified by whether a laboratory specimen was submitted to a NYC laboratory for genomic sequencing. Please see the technical notes for a description of the different [laboratories that perform sequencing in NYC](https://github.com/nychealth/coronavirus-data#variants-of-the-sars-cov-2-virus). 
 
-People with confirmed COVID-19 are categorized based on: the date of collection of the sequenced specimen for those with sequencing and the date of diagnosis for those without sequencing. Data are aggregated by full-weeks starting each Sunday and ending on Saturday. For example, a person who was diagnosed with COVID-19 on Monday, May 3, 2021 would be categorized as diagnosed during the week ending May 8, 2021. 
+People with confirmed COVID-19 are categorized based on: the date of collection of the sequenced specimen for those with sequencing and the date of diagnosis for those without sequencing. Data are aggregated by four-week periods starting on a Sunday and ending on a Saturday. For example, a person who was diagnosed with COVID-19 on Monday, May 3, 2021 would be categorized as diagnosed during the period ending May 8, 2021. 
 
 Indicators include: 
 | Variable Name | Definition | Timeframe |   
 |---------------------|---------------|----------------| 
-| WEEK_ENDING | Week-ending date | |       
+| PERIOD_START_DATE | Period-starting date | |       
+| PERIOD_END_DATE | Period-ending date | |       
 | NOT_SEQUENCED | Number of confirmed cases *without* a specimen submitted to a NYC laboratory for sequencing | Full week preceding the week-ending date |       
 | SEQUENCED | Number of confirmed cases *with* a specimen submitted to a NYC laboratory for sequencing | Full week preceding the week-ending date |     
 | CASES | Number of confirmed cases citywide | Full week preceding the week-ending date|     
@@ -38,6 +39,7 @@ Indicators include:
 | NAME | Variant label per [World Health Organization (WHO) nomenclature](https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/) | | 
 | COUNT | Number of confirmed cases by SARS-CoV-2 variant | Cumulative across most recent 4-week period | 
 | TOTAL | Number of confirmed cases with a specimen submitted to a NYC laboratory for sequencing | Cumulative across most recent 4-week period | 
+| CLASSIFICATION | Variant classification per [CDC definitions](https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/variant-surveillance/variant-info.html) | | 
 | PERCENT_IN_NYC | Percentage of confirmed cases by SARS-CoV-2 variant | Cumulative across most recent 4-week period | 
 
 Note that sum of counts in this file may not match values in citywide tables because of records with missing data.
@@ -48,6 +50,8 @@ This file contains the counts and percentages of confirmed cases, by SARS-CoV-2 
 
 Please see the technical notes for a description of the different [definitions of SARS-CoV-2 variants](https://github.com/nychealth/coronavirus-data#variants-of-the-sars-cov-2-virus).
 
-People with confirmed COVID-19 are categorized based on the date of collection of the sequenced specimen, and are aggregated by full-weeks starting each Sunday and ending on Saturday. For example, a person whose specimen was sequenced on Monday, May 3, 2021 would be categorized as sequenced during the week ending May 8, 2021. 
+Variants outlined in this file generally include all subsequent sublineages. 
+
+People with confirmed COVID-19 are categorized based on the date of collection of the sequenced specimen, and are aggregated by four-week periods starting on a Sunday and ending on a Saturday. For example, a person whose specimen was sequenced on Monday, May 3, 2021 would be categorized as sequenced during the period ending May 8, 2021. 
 
 Note that sum of counts in this file may not match values in citywide tables because of records with missing data.

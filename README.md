@@ -1,10 +1,10 @@
 # NYC Coronavirus Disease 2019 (COVID-19) Data   
 
-This repository contains data on Coronavirus Disease 2019 (COVID-19) in New York City (NYC). The Health Department classifies the start of the COVID-19 outbreak in NYC as the date of the first laboratory-confirmed case, February 29, 2020.  
+This repository contains data on Coronavirus Disease 2019 (COVID-19) in New York City (NYC). The Health Department classifies the start of the COVID-19 outbreak in NYC as the date of the first laboratory-confirmed case, February 29, 2020.   
 
 You can view visualizations of these data on the [Health Department’s COVID-19 Data webpage](https://www1.nyc.gov/site/doh/covid/covid-19-data.page). Additional data related to COVID-19 are available via [NYC Open Data](https://data.cityofnewyork.us/browse?category=Health&q=covid). 
 
-Data are preliminary and subject to change. Information on this page will change as data and documentation are updated. Tables are updated either every weekday (at a 3-day lag), weekly on Thursday (with data through the previous Saturday), or monthly (at a 14-day lag).
+Data are preliminary and subject to change. Information on this page will change as data and documentation are updated. Tables are updated either weekly on Thursday (at a 3-day lag or with data through the previous Saturday) or monthly (at a 14-day lag).
 
 ***
 
@@ -28,6 +28,41 @@ Alternatively, you can download a single file. Click on a file you would like to
 **Questions and custom requests**: We will try to answer questions about the data in this repository as we are able to. If you have a question, please search the [Issues](https://github.com/nychealth/coronavirus-data/issues?q=) to see if it’s already been addressed. Please understand that we are responding to a pandemic and we might not be able to address all questions in a timely manner.  We are not able to accommodate custom data requests placed via Github.  
 
 ***
+## Update on October 5, 2023
+Due to changes in reporting requirements, vaccination data are incomplete. We will no longer be presenting data by vaccination status, and we will be discontinuing updates to our now-weekly-breakthrough file. 
+
+## Update on June 1, 2023
+
+Because the federal public health emergency for COVID-19 has ended, labs are no longer required to report negative SARS-CoV-2 test results. Multiple labs have stopped reporting these results, so we are no longer able to accurately calculate percent positivity and testing rates for COVID-19. The following tables will no longer be updated: 
+- antibody-by-group.csv
+- antibody-by-modzcta.csv   
+- antibody-by-week.csv   
+- last7days-by-modzcta.csv
+- now-testing-by-age.csv
+- now-tests.csv
+- pp-by-modzcta.csv
+- percentpositive-by-modzcta.csv
+- testing-by-age.csv  
+- testrate-by-modzcta.csv
+- tests.csv   
+
+## Update on May 11, 2023
+
+The Health Department made several changes to this repository and the [COVID-19 Data webpage](https://www1.nyc.gov/site/doh/covid/covid-19-data.page) on May 11, 2023. These include:
+* We are applying a revised the COVID-19 death definition and COVID-19 deaths will no longer be classified as confirmed or probable. Deaths from April 3, 2023, will be counted as a COVID-19 death if: 
+  - the death certificate lists COVID-19 or an equivalent term as the underlying or a contributing cause of death, or 
+  - a case investigation for a confirmed, probable, or suspect COVID-19 case determined that COVID-19 was the cause of death or contributed to the death.
+* In line with the death definition change change, total deaths will be presented instead of confirmed and probable deaths in all graphs and tables. 
+* We have revised the tables for weekly hospitalization and death rates by age and race/ethnicity to correctly categorize people with COVID-19 based on date of event (hospital admission or death). These files previously categorized people with COVID-19 based on date of COVID-19 diagnosis. Trends using the updated data remain the same. 
+
+## Update on April 3, 2023
+
+Starting the week of April 3, 2023, the Health Department will update data in this repository and on the [COVID-19 Data webpage](https://www1.nyc.gov/site/doh/covid/covid-19-data.page) weekly on Thursdays. 
+
+## Update on October 28, 2022
+
+The Health Department uploaded historical probable deaths among NYC residents recently reported from other jurisdictions. These were cases where COVID was listed on the death certificate but without a corresponding positive lab and took place in 2020, 2021, and early 2022.  
+
 ## Update on September 14, 2021
 - Antibody-by-age, -by-boro, -by-poverty, and -by-sex data are now found in antibody-by-group.csv. The other files will no longer be updated.
 - by-age, by-boro, by-poverty, by-race, and by-sex will no longer be updated. Those data are now found in by-group.csv.
@@ -120,7 +155,7 @@ In order to support an update to the [Health Department’s COVID-19 Data webpag
 ## Public health reporting  
 ### Reporting lag 
 
-Our data are updated either daily (at a 3-day lag), weekly on Thursday (with data through the previous Saturday), or monthly (at a 14-day lag). For example, a 3-day lag means that the most recent data in today's update are from three days before. These lags are due to standard delays (up to several days) in reporting a new test, case, hospitalization or death to the Health Department, and are a common limitation of surveillance data. Given the delay, our counts of what has happened in the most recent few days are artificially small. We delay publishing these data until more reports have come in and the data are more complete.
+Our data are updated either weekly on Thursday (at a 3-day lag or with data through the previous Saturday) or monthly (at a 14-day lag). For example, a 3-day lag means that the most recent data in the update are from three days before. These lags are due to standard delays (up to several days) in reporting a new test, case, hospitalization or death to the Health Department, and are a common limitation of surveillance data. Given the delay, our counts of what has happened in the most recent few days are artificially small. We delay publishing these data until more reports have come in and the data are more complete.
 
 ### Report date versus date of event 
 
@@ -167,7 +202,7 @@ Pneumonia is defined as mention or diagnosis of pneumonia. Since the signs and s
 
 #### Reportable disease surveillance 
 
-The Health Department receives electronic laboratory reports for a number of infectious diseases, including COVID-19, as required by law in the [NYC Health Code](https://www1.nyc.gov/site/doh/providers/reporting-and-services/notifiable-diseases-and-conditions-reporting-central.page). When a specimen is collected from a patient for SARS-CoV-2 laboratory testing, the laboratory must report all results, whether positive, negative, or inconclusive, to the Health Department. Limited demographic information on the person being tested is reported to the Health Department, including name, address, and date of birth. 
+The Health Department receives electronic laboratory reports for a number of infectious diseases, including COVID-19, as required by law in the [NYC Health Code](https://www1.nyc.gov/site/doh/providers/reporting-and-services/notifiable-diseases-and-conditions-reporting-central.page). When a specimen is collected from a patient for SARS-CoV-2 laboratory testing, the laboratory must report all results to the Health Department. As of May 11, 2023, labs are only required to submit positive diagnostic SARS-CoV-2 test results to the Health Department. Limited demographic information on the person being tested is reported to the Health Department, including name, address, and date of birth. 
 
 ## Laboratory testing
 ### Types of COVID-19 laboratory tests
@@ -206,26 +241,6 @@ There are three main types of COVID-19 tests that are reported to the Health Dep
 
 - These data are based on electronic laboratory reports, which often lack information on demographic and clinical characteristics of interest, such as race and ethnicity, co-occurring medical conditions, presence and onset date of COVID-19 symptoms, reason for testing, and occupation. 
 
-### Calculation of percent positivity
-
-**Citywide percent positivity** values are currently calculated as follows: 
-
-| Value | Definition | 
-|-------|------------| 
-| Daily values | The numerator includes all people with positive results on each specimen collection date, and the denominator includes all people who received a test on each specimen collection date | 
-| 7-day average | The numerator includes all people with positive results in the last 7 days, and the denominator includes all people who received a test in the last 7 days. If a person is tested more than one time, they are only counted once. If a person tests both positive and negative in the same 7-day period, the positive result is counted. | 
-| 28-day average | The numerator includes all people with positive results in the last 28 days, and the denominator includes all people who received a test in the last 28 days. If a person is tested more than one time, they are only counted once. If a person tests both positive and negative in the same 28-day period, the positive result is counted. |
-
-These values are inclusive of people who previously tested positive. These values are inclusive of persons who reside in long term care facilities and correctional facilities.
-
-**Modified ZIP Code Tabulation Area (MODZCTA)-level percent positivity** values are currently calculated as follows: 
-
-| Value | Definition | 
-|-------|------------| 
-| Daily values | Within each MODZCTA, the numerator includes all people with positive results on each specimen collection date, and the denominator includes all people who received a test on each specimen collection date | 
-| 7-day average | Within each MODZCTA, the numerator includes all people with positive results in the last 7 days, and the denominator includes all people who received a test in the last 7 days. If a person is tested more than one time, they are only counted once. If a person tests both positive and negative in the same 7-day period, the positive result is counted. | 
-
-These values exclude people who previously tested positive. These values exclude persons who reside in long term care facilities and correctional facilities.
 
 ## Counting COVID-19 cases, hospitalizations, and deaths
 ### Case definitions for COVID-19
@@ -248,7 +263,7 @@ The Health Department imports information on hospitalization status from a numbe
 
 Note that hospitalization information can be missing or incomplete from a number of facilities, which is a limitation for any analysis considering hospitalization status by geography (e.g., borough).  
 
-With the November 9, 2020 update, we revised the definition of a COVID-19 hospitalization and removed people who were hospitalized more than 14 days before or after their COVID-19 diagnosis from our count. 
+With the November 9, 2020 update, we revised the definition of a COVID-19 hospitalization and removed people who were hospitalized more than 14 days before or after their COVID-19 diagnosis from our count. Starting October 6, 2022, we revised the definition of a COVID-19 hospitalization to prospectively include those diagnosed 14 days before through 3 days after their hospitalization. 
 
 Hospitalizations are among confirmed or probable cases of COVID-19.
 
@@ -256,15 +271,20 @@ Hospitalizations are among confirmed or probable cases of COVID-19.
 
 COVID-19 deaths are reported from March 11, 2020 as this was the first date of death for a patient with confirmed COVID-19.   
 
-There are two classifications of COVID-19 deaths reported:   
+Starting April 3, 2023, COVID-19 deaths are no longer classified as confirmed or probable. Deaths are counted as a COVID-19 death if: 
 
-- A death is classified as **confirmed** if the decedent was a NYC resident who had a positive molecular test for the virus that causes COVID-19 and did not die of external causes such as gunshot wounds or drug overdoses.   
+- the death certificate lists COVID-19 or an equivalent term as the underlying or a contributing cause of death, or 
 
-- A death is classified as **probable** if the decedent was a NYC resident (or residency pending) who had no known positive molecular test for the virus that causes COVID-19 but the death certificate lists “COVID-19” or an equivalent as a cause of death.   
+- a case investigation for a confirmed, probable, or suspect COVID-19 case determined that COVID-19 was the cause of death or contributed to the death.
 
-As new information becomes available, some deaths previously classified as probable may be reclassified as confirmed. This may lead to a reduction in the number of probable deaths in daily reporting. 
+Prior to April 3, 2023, there were two classifications of COVID-19 deaths reported:   
 
-Starting in June 2020, people who died more than 60 days after their COVID-19 diagnosis and starting August 3, 2021, people who died more than 30 days after their COVID-19 diagnosis who did not have "COVID" or similar listed on their death certificate are removed from the death count. This is to address instances in which a person was diagnosed with COVID-19 and survived, but later died, likely of other causes.
+- A death was classified as **confirmed** if the decedent was a NYC resident who had a positive molecular (PCR) test* for the virus that causes COVID-19 and did not die of external causes such as gunshot wounds or drug overdoses.   
+
+- A death was classified as **probable** if the decedent was a NYC resident (or residency pending) who had no known positive molecular test for the virus that causes COVID-19 but the death certificate lists “COVID-19” or an equivalent as a cause of death.   
+
+Starting in June 2020, people who died more than 60 days after their COVID-19 diagnosis and starting August 3, 2021, people who died more than 30 days after their COVID-19 diagnosis who did not have "COVID" or similar listed on their death certificate were removed from the death count. This was to address instances in which a person was diagnosed with COVID-19 and survived, but later died, likely of other causes.
+
 
 **Differences between death counts between NYC and New York State:** Data on deaths reported by NYC are derived from the Health Department’s surveillance database and will be different from data reported by the New York State Department of Health. The State Department of Health reports data on deaths from:   
 
@@ -290,7 +310,7 @@ Rates for annual citywide-, borough-, ZIP code tabulation areas-, and demographi
 
 Please note that population estimates were updated on November 9, 2020 to reflect annual population estimates for all New Yorkers as of July 1, 2019. These estimates are prior to the COVID-19 outbreak, and therefore, do not represent any changes to NYC’s population as a result of COVID-related migration. 
 
-Rates of cases, hospitalizations, and deaths for poverty and race/ethnicity groups were calculated using direct standardization for age at diagnosis and weighting by [the US 2000 standard population](https://www.cdc.gov/nchs/data/statnt/statnt20.pdf).   
+Rates of cases, hospitalizations, and deaths for poverty and race/ethnicity groups were calculated using direct standardization for age at diagnosis, hospitalization, or death and weighting by [the US 2000 standard population](https://www.cdc.gov/nchs/data/statnt/statnt20.pdf).   
 
 ## Demographic characteristics
 ### Geography: ZIP codes and ZCTAs  
@@ -334,7 +354,7 @@ Multiple [variants of the SARS-CoV-2 virus](https://www.cdc.gov/coronavirus/2019
 
 Variants can be detected through [genomic sequencing](https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/variant-surveillance.html), a process that involves analyzing the virus's genetic material. Sequencing occurs on specimens collected for COVID-19 molecular laboratory testing, and determines which variant of the SARS-CoV-2 virus a particular person was infected with.
 
-The City’s Public Health Laboratory (PHL) and Pandemic Response Laboratory (PRL) have been sequencing a subset of SARS-CoV-2 laboratory specimens to identify emerging variants in NYC. Since October 2020, the PHL has sequenced all laboratory specimens received that meet certain technical criteria (e.g., sufficient levels of virus in a sample). Since February 2021, the PRL has been sequencing randomly selected specimens that meet certain technical criteria.
+The City’s Public Health Laboratory (PHL) and Pandemic Response Laboratory (PRL) have been sequencing a subset of SARS-CoV-2 laboratory specimens to identify emerging variants in NYC. Since October 2020, the PHL has sequenced all laboratory specimens received that meet certain technical criteria (e.g., sufficient levels of virus in a sample). Starting in February 2021, the PRL sequenced randomly selected specimens that meet certain technical criteria. As of January 2023, PRL has closed and is no longer sequencing specimens. 
 
 A small proportion of all confirmed COVID-19 cases are now being sequenced citywide. As such, all findings related to variant data are based on a small subset of all confirmed COVID-19 cases. Because patients who have specimens sequenced are likely to be different than those that do not, findings may not be representative of all confirmed COVID-19 cases citywide, and should be interpreted with caution. Additional specimens are being sequenced by the New York State Wadsworth Laboratory and university, hospital, and private laboratories, and reported to the Health Department. These include samples from NYC Health & Hospitals emergency departments, the Office of the Chief Medical Examiner, and other sources, which may bias data toward more severe cases. 
 
@@ -365,7 +385,7 @@ The Health Department is continuing to investigate the emergence of variants of 
 
 ### latest/ 
 
-This folder contains files with data that focus on the most recent period of the outbreak. It includes daily 7-day cumulative percent positivity for the molecular test by MODZCTA, daily 28-day counts and rates of hospitalizations and deaths by MODZCTA, and trend data that cover the most recent 90 days. See this folder’s [Readme](https://github.com/nychealth/coronavirus-data/tree/master/latest#latest) for a detailed description of its contents.  
+This folder contains files with data that focus on the most recent period of the outbreak. It includes daily 28-day counts and rates of hospitalizations and deaths by MODZCTA, and trend data that cover the most recent 90 days. See this folder’s [Readme](https://github.com/nychealth/coronavirus-data/tree/master/latest#latest) for a detailed description of its contents.  
 
 ### totals/ 
 
